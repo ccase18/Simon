@@ -1,4 +1,4 @@
-**READE ME**
+**READ ME**
 
 **Overview**
 * With this project, we opted to create a Simon game
