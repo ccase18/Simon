@@ -3,6 +3,7 @@ Game(object)
 Descriptions: 
 Score (multiple games)
 Current score = self.currentscore 
+High Score = self.highscore
 Running status (self.GameStatus = TRUE)
 Board: (This is how our code for board will look like…)
 self.board = [ 
