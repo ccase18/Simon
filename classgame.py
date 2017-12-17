@@ -47,7 +47,7 @@ class Game
 
 	sequence = []
 
-	def checkSequence():
+	def check_Sequence():
 
 	    global sequence
 
