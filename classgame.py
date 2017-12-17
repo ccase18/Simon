@@ -3,8 +3,7 @@ class Game
 
 	def__init__(self, object):
 
-		self.Current_Score = currentscore
-		self.High_Score = highscore
+		self.Current_Score = s
 		self.Game_Status = True 
 		self.board = [ 
 		[Cell("A1"), Cell("B1")],
@@ -36,17 +35,46 @@ class Game
 #This stored list of squares will increase and continue as long as the user gets the order right
 		AI = []
 		for i in range (5):
-			AI = random.randint(0,4)
-			print(i)
+			r = random.randint(1,4)
+
+	def endgame():
+		self.Game_Status = False 
+
+	def scoreUp():
+	    global s
+	    s = s + 1
+	    scoreNum.configure(text = s)
+
+	sequence = []
+
+	def checkSequence():
+
+	    global sequence
+
+	    if clicks == sequence:
+	        scoreUp()
+
+	    user_input = str(input('Please click the tiles our AI showed you. Click Q for the top left square. Press W for top right square. Press A for bottom left square. Press S for bottom right sqaure.'))
 		
-		user_input = str(input('Please click the tiles our AI showed you. Click Q for the top left square. Press W for top right square. Press A for bottom left square. Press S for bottom right sqaure.'))
+		if user_input == sequence:
+			s += 5
+		elif user_input != sequence:
+			s == s
+			endgame()
+
+	def showSequence():
+
+	    global r
+	    global sequence
+
+	    if r == 1:
+
+	    elif r == 2:
+
+	    elif r == 3:  
+
+	    elif r == 4:
+
+
+
 		
-		if user_input == AI:
-			currentscore += 5
-		elif user_input != AI:
-			currentscore == currentscore
-			
-
-
-
-	
