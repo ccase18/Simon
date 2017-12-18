@@ -33,8 +33,8 @@ class Game
 		}
 #Chooses a random square on the simon board and stores the value
 #This stored list of squares will increase and continue as long as the user gets the order right
-		AI = []
-		for i in range (5):
+		r = []
+		for i in range (turns):
 			r = random.randint(1,4)
 
 	def endgame():
@@ -51,7 +51,7 @@ class Game
 
 	    global sequence
 
-	    if clicks == sequence:
+	    if user_input == sequence:
 	        scoreUp()
 
 	    user_input = str(input('Please click the tiles our AI showed you. Click Q for the top left square. Press W for top right square. Press A for bottom left square. Press S for bottom right sqaure.'))
