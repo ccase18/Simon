@@ -1,49 +1,62 @@
 import random
 import os
 import time
-from tkinter import *
-from collections import namedtuple
 #Game(object) API
 
-class Game 
+class Simon:
 
-	def__init__(self):
-
-		self.Current_Score = s
+	def __init__(self,):
+		self.score = 0
 		self.Game_Status = True 
+		self.turns = 1
+		self.highscore = 0
+		self.r = []
 		
-	def input(): 
-		list[]	{
-		A1 = '1'
-		A2 = '2'
-		A3 = '3'
-		A4 = '4'
-		}
+	def sequence(self): 
 #Chooses a random square on the simon board and stores the value
 #This stored list of squares will increase and continue as long as the user gets the order right
-		r = []
-		for i in range (turns):
-			r = random.randint(1,4)
+		self.r.append(random.randint(1,4))
+		self.printNumbers(self.r)
 
-	def endgame():
+
+	def endgame(self):
+		print("Score: " + str(self.score))
+		print("Highscore: " + str(self.highscore))
+		self.score = 0
+		self.turns = 1
+		try: 
+			playagain = str(input("Would you like to play again? y/n: "))
+		except ValueError:
+			playagain = str(input("Enter y or n: "))
+
+		if playagain == 'y':
+			main()
+		else: 
+			self.Game_Status = False
+
+
+
 		self.Game_Status = False 
 
-	def scoreUp():
-	    global s
-	    s = s + 1
-	    scoreNum.configure(text = s)
 
-	sequence = []
+	def scoreUp(self):
+	    self.score = self.score + (self.turns * 5)
+	    self.turns = self.turns + 1
+	    if self.score > self.highscore:
+	    	self.highscore = self.score
+	    else: 
+	    	self.highscore = self.highscore
+		self.sequence()
 
-	def showSequence():
-	    global r
-	    global sequence
-	    if user_input == sequence:
-	    	print ("To the next level!")
-	    elif user_input != sequence:
-	    	print("Wrong. Game Over.")
+	def printNumbers(self, r):
+		for i in range(0,len(r)):
+			print(self.r[i])
+			time.sleep(.7)
+		os.system('cls' if os.name=='nt' else 'clear')
+		check_Sequence(self.r)
 
-class Time: 
+
+"""class Time: 
 	def stopwatch(self, turns):
 		i = 0 
 		gameState = True
@@ -54,92 +67,37 @@ class Time:
 				turns = turns - 1
 				self.stopwatch(turns)
 
-	def check():
+	def check(self):
 		answer = none
 		time.sleep(5)
 		if answer == none:
 			print("too slow")
 			gameState = False
 		else:
-			i = i 
-turns = 2
-mytime = Time()
-mytime.stopwatch(turns)
-
-class Visuals:
-	def __init__(self, master):
-		self.HEIGHT = 500
-		self.WIDTH = 500
-		self.master = master
-
-		self.SQUARES = [(0, 249, 0, 249), (250, 500, 0, 249), (0, 249, 250, 500), (250, 500, 250, 500)]
-
-		white = (255,255,255)
-		#red = (255, 0, 0)
-		#green = (0, 255, 0)
-		#blue = (0, 0, 255)
-		#yellow = (255, 255, 0)
-		self.colors = ["red", "blue", "green", "yellow"]
-
-		window = Tk()
-		canvas = Canvas(window, width = self.WIDTH, height = self.HEIGHT, bg = "black")
-		img = PhotoImage(width = self.WIDTH, height = self.HEIGHT)
-		canvas.create_image((0,0), image = img, state = "normal")
+			i = i """
 
 
-	def drawRectangles(self):
-
-		#for i in range(0, len(self.SQUARES)):
-			#canvas.create_rectangle(self.SQUARES[i], fill = self.colors[i])
-
-		canvas.pack()
-		canvas.postscript(file="file_name.ps", colormode='color')
-
-
- 	#def flash(self):
- 		#squaretoflash = [1] #would normally be given from kevins class as a random value, but needed here
- 		#for i in squarestoflash:
-			#canvas.create_rectangle(SQUARES(squaretoflash), "white")
-	 		#time.sleep(.6)
-	 		#canvas.create_rectangle(SQUARES(squaretoflash))
+def check_Sequence(r):
+	user_input = str(input('Please enter the numbers SIMON flashed to you back in the exact same order with no spaces. \n: '))
+	storedvalues = ''.join(map(str, simon.r))
+	if user_input == str(storedvalues):
+		print ("To the next level! \n \n")
+		time.sleep(.5)
+		os.system('cls' if os.name=='nt' else 'clear')
+		simon.scoreUp()
+	elif user_input != str(storedvalues):
+		del r[:]
+		print("Wrong. Game Over.")
+		simon.Game_Status = False
+		simon.endgame()
 
 
- 	#def reset(self):
- 		#for i in range(0, len(SQUARES)):
-			#canvas.create_rectangle(SQUARES(i))
+def main():
+	if simon.Game_Status == True:
+		simon.sequence()
+	else:
+		print("Bye!")
 
-
-root = Tk()
-board = Visuals(root)
-board.drawRectangles()
-root.mainLoop()
-
+simon = Simon()
+main()
 	
-#The user will be able to select on certain square by clicking these keys
-#Q is for the top left square. 
-#W is for the top right square.
-#A is for the bottom left square.
-#S is for the bottom right square. 
-
-def check_Sequence():
-	global sequence
-
-	if user_input == sequence:
-		scoreUp()
-
-	user_input = str(input('Please click the numbers between 1 and 4 our AI showed you just now. Click Q for the top left square. Press W for top right square. Press A for bottom left square. Press S for bottom right sqaure.'))
-		
-	if user_input == sequence:
-		s += 5
-	elif user_input != sequence:
-		s == s
-		endgame()
-
-#The user will be able to select on certain square by clicking these keys
-#Q is for the top left square. 
-#W is for the top right square.
-#A is for the bottom left square.
-#S is for the bottom right square.
-
-
-
