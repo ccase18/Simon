@@ -1,4 +1,4 @@
-
+from classgame import Game
 def User_Input():
 	A1 = Q
 	A2 = W

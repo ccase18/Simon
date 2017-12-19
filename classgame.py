@@ -1,4 +1,6 @@
 #Game(object) API
+import random
+
 class Game 
 
 	def__init__(self):
