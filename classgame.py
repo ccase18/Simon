@@ -1,7 +1,9 @@
 #Game(object) API
+import random
+
 class Game 
 
-	def__init__(self, object):
+	def__init__(self):
 
 		self.Current_Score = s
 		self.Game_Status = True 
@@ -13,17 +15,7 @@ class Game
 		self.B1 = self.board[0][1]
 		self.B2 = self.board[1][1]
 		]
-	
-	def User_Input():
-		[0][1] = Q
-		[1][1] = W
-		[1][0] = A 
-		[1][1] = S
-#The user will be able to select on certain square by clicking these keys
-#Q is for the top left square. 
-#W is for the top right square.
-#A is for the bottom left square.
-#S is for the bottom right square. 
+
 	def input(): 
 		list[]	{
 		A1 = '1'
@@ -47,28 +39,13 @@ class Game
 
 	sequence = []
 
-	def check_Sequence():
-
-	    global sequence
-
-	    if user_input == sequence:
-	        scoreUp()
-
-	    user_input = str(input('Please click the tiles our AI showed you. Click Q for the top left square. Press W for top right square. Press A for bottom left square. Press S for bottom right sqaure.'))
-		
-		if user_input == sequence:
-			s += 5
-		elif user_input != sequence:
-			s == s
-			endgame()
-
 	def showSequence():
 
 	    global r
 	    global sequence
 
 	    if r == 1:
-
+#tiles 
 	    elif r == 2:
 
 	    elif r == 3:  
