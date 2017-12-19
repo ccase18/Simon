@@ -1,6 +1,9 @@
-
-#Game(object) API
 import random
+import os
+import time
+from tkinter import *
+from collections import namedtuple
+#Game(object) API
 
 class Game 
 
@@ -33,12 +36,12 @@ class Game
 	sequence = []
 
 	def showSequence():
-
 	    global r
 	    global sequence
-
-
-import time
+	    if user_input == sequence:
+	    	print ("To the next level!")
+	    elif user_input != sequence:
+	    	print("Wrong. Game Over.")
 
 class Time: 
 	def stopwatch(self, turns):
@@ -62,10 +65,6 @@ class Time:
 turns = 2
 mytime = Time()
 mytime.stopwatch(turns)
-
-
-from tkinter import *
-from collections import namedtuple
 
 class Visuals:
 	def __init__(self, master):
