@@ -7,7 +7,7 @@ class Time:
 		while i < turns and gameState == True:
 			answer = input("You have 5 seconds, please pick a tile: ")
 			self.check()
-			while gameState == True:
+			gameState == True:
 				turns = turns - 1
 				self.stopwatch(turns)
 

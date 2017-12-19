@@ -1,24 +1,52 @@
-import tkinter
-class simon:
-	def __init__(self):
-	    IDLE = ("red", "blue", "green", "yellow")
-	    FLASHED = ("#ff4d4d", "#4d4dff", "#4dff4d", "#ffff4d")
+from tkinter import *
+from collections import namedtuple
 
-	    squares = namedtuple(Color, x, y)
-	    squaresData = [square(yellow, 0, 0)
-	    			   square(blue, 77, 0)
-	    			   square(green,77, 77)
-	    			   square(red, 0, 77)]
+class Visuals:
+	def __init__(self, master):
+		self.HEIGHT = 500
+		self.WIDTH = 500
+		self.master = master
 
-	    self.base = Tkinter.Tk()
-	    self.Frame = Tkinter.Frame(self.base, bg="black", width= 250, height=250)
+		self.SQUARES = [(0, 249, 0, 249), (250, 500, 0, 249), (0, 249, 250, 500), (250, 500, 250, 500)]
 
-	def drawCanvas(self):
+		white = (255,255,255)
+		#red = (255, 0, 0)
+		#green = (0, 255, 0)
+		#blue = (0, 0, 255)
+		#yellow = (255, 255, 0)
+		self.colors = ["red", "blue", "green", "yellow"]
 
- 	def flash(self):
- 	
- 	def reset(self):
+		window = Tk()
+		canvas = Canvas(window, width = self.WIDTH, height = self.HEIGHT, bg = "black")
+		img = PhotoImage(width = self.WIDTH, height = self.HEIGHT)
+		canvas.create_image((0,0), image = img, state = "normal")
 
 
+	def drawRectangles(self):
+
+		#for i in range(0, len(self.SQUARES)):
+			#canvas.create_rectangle(self.SQUARES[i], fill = self.colors[i])
+
+		canvas.pack()
+		canvas.postscript(file="file_name.ps", colormode='color')
+
+
+ 	#def flash(self):
+ 		#squaretoflash = [1] #would normally be given from kevins class as a random value, but needed here
+ 		#for i in squarestoflash:
+			#canvas.create_rectangle(SQUARES(squaretoflash), "white")
+	 		#time.sleep(.6)
+	 		#canvas.create_rectangle(SQUARES(squaretoflash))
+
+
+ 	#def reset(self):
+ 		#for i in range(0, len(SQUARES)):
+			#canvas.create_rectangle(SQUARES(i))
+
+
+root = Tk()
+board = Visuals(root)
+board.drawRectangles()
+root.mainLoop()
 
 
